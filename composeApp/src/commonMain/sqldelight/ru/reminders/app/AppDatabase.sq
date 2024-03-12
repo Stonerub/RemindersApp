@@ -1,0 +1,55 @@
+import kotlin.Boolean;
+
+CREATE TABLE Reminder (
+id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+uuid TEXT NOT NULL,
+secondUuid TEXT NOT NULL,
+reminderText TEXT NOT NULL,
+done INTEGER AS Boolean DEFAULT 0,
+year INTEGER,
+month INTEGER,
+day INTEGER,
+hour INTEGER,
+minute INTEGER
+);
+
+getUndoneReminders:
+SELECT *
+FROM Reminder
+WHERE done == 0;
+
+insertReminder:
+INSERT OR REPLACE
+INTO Reminder(
+uuid,
+secondUuid,
+reminderText
+) VALUES (?, ?, ?);
+
+updateDoneStatus:
+UPDATE Reminder
+SET done = :done, year = NULL, month = NULL, day = NULL, hour = NULL, minute = NULL
+WHERE uuid = :uuid;
+
+getDoneReminders:
+SELECT *
+FROM Reminder
+WHERE done != 0;
+
+deleteReminder:
+DELETE FROM Reminder
+WHERE uuid = :uuid;
+
+updateReminder:
+UPDATE Reminder
+SET reminderText = :reminderText, year = :year, month = :month, day = :day, hour = :hour, minute = :minute
+WHERE uuid = :uuid;
+
+getIdByUuid:
+SELECT *
+FROM Reminder
+WHERE uuid = :uuid;
+
+getLastId:
+SELECT uuid
+FROM Reminder;

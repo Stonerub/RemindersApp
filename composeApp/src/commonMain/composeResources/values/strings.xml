@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_title">Напоминания</string>
+    <string name="app_date_picker_confirm_button">Выбрать время</string>
+    <string name="app_date_picker_dismiss_button">Отмена</string>
+    <string name="app_time_picker_confirm_button">Готово</string>
+    <string name="app_time_picker_dismiss_button">Назад</string>
+    <string name="app_permissions_alert_text">Не выйдет, сначала нужно перейти в настройки и разрешить приложению отправлять пуш уведомления</string>
+    <string name="app_permissions_alert_settings_button_text">В настройки</string>
+    <string name="app_permissions_alert_dismiss_button_text">Понятно</string>
+    <string name="app_scheduled_alert_delete_timer_button">Убрать время</string>
+    <string name="app_scheduled_alert_done_button">Сделано</string>
+    <string name="app_done_items_header">Выполненные</string>
+    <string name="app_undone_items_header">Невыполненные</string>
+</resources>

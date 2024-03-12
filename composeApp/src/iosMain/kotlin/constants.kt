@@ -1,0 +1,1 @@
+const val GENERAL_PUSH_CHANNEL = "ru.reminders.app"
