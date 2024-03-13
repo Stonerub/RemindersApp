@@ -19,6 +19,7 @@ import common.enum.isDatePicker
 import common.enum.isVisible
 import kotlinx.datetime.Clock
 import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toInstant
 import kotlinx.datetime.toLocalDateTime
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.stringResource
@@ -42,7 +43,10 @@ fun PickersCompose(
         //Date picker state
         val datePickerState = rememberDatePickerState(
             initialSelectedDateMillis = editingModel?.selectedDate
-                ?: Clock.System.now().toEpochMilliseconds(),
+                ?: Clock.System.now()
+                    .toLocalDateTime(TimeZone.currentSystemDefault())
+                    .toInstant(TimeZone.currentSystemDefault())
+                    .toEpochMilliseconds(),
             selectableDates = ReminderSelectableDates
         )
 
